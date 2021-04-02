@@ -10,10 +10,6 @@ import Posts from "./components/Posts";
 import Post from "./components/Post";
 
 import "./App.css";
-const unsubscribe = store.subscribe(() => {
-  console.log(store.getState());
-});
-
 function App() {
 
   return (

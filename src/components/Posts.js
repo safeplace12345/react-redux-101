@@ -2,7 +2,10 @@ import React from "react";
 import {NavLink} from 'react-router-dom'
 import { connect } from "react-redux";
 function Posts(props) {
-  
+  const users = [] 
+  props.users.data.forEach(element => {
+    users.push(element.name)
+  });
   return (
     <div>
       <>
@@ -31,7 +34,7 @@ function Posts(props) {
                     Go to this Post
                   </NavLink>
                 </div>
-                <div className="card-footer">User Id : {userId}</div>
+                <div className="card-footer">Authored by : {users[id] ? users[id] : "Anonymous"}</div>
               </div>
             );
           })
@@ -46,6 +49,7 @@ function Posts(props) {
 const mapStateToProps = (state) => {
   return {
     posts: state.posts,
+    users : state.user
   };
 };
 export default connect(mapStateToProps)(Posts);
