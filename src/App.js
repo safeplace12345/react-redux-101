@@ -8,8 +8,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Posts from "./components/Posts";
 import Post from "./components/Post";
-
 import "./App.css";
+
 function App() {
   console.log(store.getState());
   return (
