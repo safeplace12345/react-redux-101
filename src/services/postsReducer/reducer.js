@@ -79,14 +79,14 @@ const posts = [
   },
 ];
 
-function reducer(state = posts, actions){
+function postsReducer(state = posts, actions){
   const payload = actions.payload;
   switch (actions.type) {
     case "deletePost":
-        // state.filter(({ id }) => id === payload.id);
-      return 'Delete Post Now'
+       return state.filter(({ id }) => id === payload.id);
       default :
       return state;
   }
 };
-export default reducer
+export default postsReducer
+
