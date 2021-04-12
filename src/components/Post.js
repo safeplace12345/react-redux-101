@@ -10,8 +10,10 @@ function Post(props) {
      e.preventDefault();
    return props.addComment(idParam, e.target["comment"].value);
   };
-  const comments = props.comments ? props.comments.find(({ id }) => id === idParam) : []
-  const commentstyle = {
+
+
+  const comments = props.comments ? props.comments.filter(({ postID }) => postID === idParam) : [];
+  const commentStyle = {
     backgroundImage:
       "url(" +
       "https://images.unsplash.com/photo-1572231754710-4bed19649091?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80" +
@@ -44,11 +46,11 @@ function Post(props) {
       {/* comments section */}
       {comments ? (
         <div>
-          <div className="media rounded col-6 mx-auto my-2" style={commentstyle}>
+          <div className="media rounded col-6 mx-auto my-2" style={commentStyle}>
             <div className="media-body">
               <h3 className="badge badge-secondary"> From : {comments.id}</h3>
-              {comments.comments.map((element) => {
-                return <h4> {element}</h4>;
+              {comments.map((element) => {
+                return <h4 key={element.id}> {element.comment}</h4>;
               })}
             </div>
           </div>

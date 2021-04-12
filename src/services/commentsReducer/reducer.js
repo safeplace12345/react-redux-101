@@ -7,7 +7,7 @@ function commentsReducer(state = comments, actions) {
       console.log("Delete comment now", payload);
       return state;
     case "addComment":
-      return [...state, { id: payload.id, comments: [payload.description] }];
+      return [...state, { id: state.length +1, postID:payload.id , comment: payload.description}];
     default:
       return state;
   }
