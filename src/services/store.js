@@ -10,3 +10,4 @@ const middleWare = [
 ]
 export const store = createStore(rootReducer,(composeWithDevTools(applyMiddleware(...middleWare))))
 store.dispatch(fetchDataActionType())
+// Test
